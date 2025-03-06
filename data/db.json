@@ -1,14 +1,15 @@
 {
+
   "usuarios": [
     {
-      "id": "1",
+      "id": 1,
       "nombre": "Admin",
       "correo": "admin@email.com",
       "password": "admin123",
       "rol": "admin"
     },
     {
-      "id": "2",
+      "id": 2,
       "nombre": "Usuario1",
       "correo": "usuario1@email.com",
       "password": "user123",
@@ -20,7 +21,7 @@
       "id": "Electrónica",
       "nombre": "Electrónica",
       "descripcion": "Dispositivos electrónicos y accesorios",
-      "estado": "deshabilitado"
+      "estado": "habilitado"
     },
     {
       "id": "Ropa",
@@ -33,24 +34,6 @@
       "nombre": "Hogar",
       "descripcion": "Artículos para el hogar y cocina",
       "estado": "deshabilitado"
-    },
-    {
-      "id": "nintendo",
-      "nombre": "nintendo",
-      "descripcion": "asdasd",
-      "estado": "habilitado"
-    },
-    {
-      "id": "nintendo",
-      "nombre": "qweqwe",
-      "descripcion": "qwewqew",
-      "estado": "habilitado"
-    },
-    {
-      "id": "ewe",
-      "nombre": "ewe",
-      "descripcion": "asdasdasd",
-      "estado": "habilitado"
     }
   ],
   "productos": [
@@ -60,7 +43,7 @@
       "descripcion": "Laptop gaming de alta gama",
       "precio": 1200,
       "categoriaId": "Electrónica",
-      "estado": "deshabilitado"
+      "estado": "habilitado"
     },
     {
       "id": "Smartphone",
@@ -95,12 +78,28 @@
       "estado": "habilitado"
     },
     {
+      "id": "Zapatillas deportivas",
+      "nombre": "Zapatillas deportivas",
+      "descripcion": "Zapatillas cómodas para correr",
+      "precio": 60,
+      "categoriaId": "Ropa",
+      "estado": "habilitado"
+    },
+    {
       "id": "Microondas",
       "nombre": "Microondas",
       "descripcion": "Microondas de 20L con grill",
       "precio": 150,
       "categoriaId": "Hogar",
       "estado": "deshabilitado"
+    },
+    {
+      "id": "Juego de sábanas",
+      "nombre": "Juego de sábanas",
+      "descripcion": "Sábanas de algodón 100% para cama matrimonial",
+      "precio": 45,
+      "categoriaId": "Hogar",
+      "estado": "habilitado"
     },
     {
       "id": "Batidora",
@@ -116,22 +115,6 @@
       "descripcion": "Reloj inteligente con sensor de frecuencia cardíaca",
       "precio": 200,
       "categoriaId": "Electrónica",
-      "estado": "habilitado"
-    },
-    {
-      "id": "nintendo",
-      "nombre": "play",
-      "descripcion": "asdasdad",
-      "precio": 12412312,
-      "categoriaId": 0,
-      "estado": "habilitado"
-    },
-    {
-      "id": "eqweqwe",
-      "nombre": "eqweqwe",
-      "descripcion": "qeqweqw",
-      "precio": 123123,
-      "categoriaId": 0,
       "estado": "habilitado"
     }
   ]
