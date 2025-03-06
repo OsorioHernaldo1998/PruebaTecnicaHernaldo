@@ -1,0 +1,64 @@
+<div class="flex justify-center items-center min-h-screen bg-gray-100">
+  <form [formGroup]="newUserForm" (ngSubmit)="createUser()" class="w-full max-w-lg bg-gray-900 p-8 rounded-lg shadow-lg">
+    <h2 class="text-2xl font-bold mb-6 text-center text-white">Crear Nuevo Usuario</h2>
+
+    <!-- Nombre -->
+    <div class="mb-6">
+      <label for="nombre" class="block text-sm font-medium text-gray-300">Nombre</label>
+      <input id="nombre" type="text" formControlName="nombre"
+        class="mt-2 p-3 w-full border border-gray-700 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 bg-gray-800 text-white" />
+      <div *ngIf="newUserForm.get('nombre')?.touched && newUserForm.get('nombre')?.invalid" class="text-sm text-red-500 mt-1">
+        <small *ngIf="newUserForm.get('nombre')?.hasError('required')">El campo Nombre es obligatorio.</small>
+      </div>
+    </div>
+
+    <!-- Correo -->
+    <div class="mb-6">
+      <label for="correo" class="block text-sm font-medium text-gray-300">Correo</label>
+      <input id="correo" type="email" formControlName="correo"
+        class="mt-2 p-3 w-full border border-gray-700 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 bg-gray-800 text-white" />
+      <div *ngIf="newUserForm.get('correo')?.touched && newUserForm.get('correo')?.invalid" class="text-sm text-red-500 mt-1">
+        <small *ngIf="newUserForm.get('correo')?.hasError('required')">El campo Correo es obligatorio.</small>
+        <small *ngIf="newUserForm.get('correo')?.hasError('email')">Debe ser un correo válido.</small>
+      </div>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="mb-6">
+      <label for="password" class="block text-sm font-medium text-gray-300">Contraseña</label>
+      <input id="password" type="password" formControlName="password"
+        class="mt-2 p-3 w-full border border-gray-700 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 bg-gray-800 text-white" />
+      <div *ngIf="newUserForm.get('password')?.touched && newUserForm.get('password')?.invalid" class="text-sm text-red-500 mt-1">
+        <small *ngIf="newUserForm.get('password')?.hasError('required')">El campo Contraseña es obligatorio.</small>
+      </div>
+    </div>
+
+    <!-- Rol -->
+    <div class="mb-6">
+      <label for="rol" class="block text-sm font-medium text-gray-300">Rol</label>
+      <select id="rol" formControlName="rol"
+        class="mt-2 p-3 w-full border border-gray-700 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 bg-gray-800 text-white">
+        <option value="usuario">Usuario</option>
+        <option value="admin">Admin</option>
+      </select>
+      <div *ngIf="newUserForm.get('rol')?.touched && newUserForm.get('rol')?.invalid" class="text-sm text-red-500 mt-1">
+        <small *ngIf="newUserForm.get('rol')?.hasError('required')">El campo Rol es obligatorio.</small>
+      </div>
+    </div>
+
+    <!-- Botones -->
+    <div class="flex justify-between mt-4">
+      <!-- Guardar -->
+      <button type="submit" [disabled]="newUserForm.invalid"
+        class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-700 transition-all duration-300 transform hover:scale-110 disabled:opacity-50">
+        Crear Usuario
+      </button>
+
+      <!-- Cancelar -->
+      <button type="button" (click)="cancelar()"
+        class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-110">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

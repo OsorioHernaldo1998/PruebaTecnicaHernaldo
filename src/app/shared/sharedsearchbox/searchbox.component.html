@@ -1,0 +1,15 @@
+<div class="mb-6 flex items-center bg-gray-50 p-3 rounded-lg shadow-lg transition-all duration-300 hover:shadow-xl focus-within:shadow-xl">
+  <!-- Icono de búsqueda -->
+  <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-gray-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 18a8 8 0 100-16 8 8 0 000 16zm0 0l4 4m4-4l-4-4"></path>
+  </svg>
+
+  <!-- Caja de búsqueda -->
+  <input
+    type="text"
+    (keyup.enter)="emitValue(textinput.value)"
+    placeholder="Buscar..."
+    class="w-full p-3 rounded-lg bg-white text-gray-700 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 transition-all duration-300"
+    #textinput
+  />
+</div>

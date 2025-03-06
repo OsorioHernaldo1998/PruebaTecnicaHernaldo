@@ -1,0 +1,38 @@
+<!-- Barra superior con borde negro y sin redondear las esquinas -->
+<div class="w-full bg-gradient-to-r from-black via-indigo-500 to-blue-600 text-white p-4 flex justify-between items-center shadow-xl transition duration-300">
+  <!-- Botón del menú con efecto de crecimiento -->
+  <button (click)="toggleMenu()" class="text-white text-4xl hover:text-indigo-200 focus:outline-none transform transition-all duration-300 hover:scale-110">
+    ☰
+  </button>
+  <!-- Botón de Logout con efecto de crecimiento -->
+  <button (click)="onLogout()" class="bg-red-600 hover:bg-red-700 px-6 py-3 rounded-lg shadow-lg hover:shadow-2xl transform hover:scale-110 transition-all duration-300">
+    LogOut
+  </button>
+</div>
+
+<!-- Sidebar Desplegable con forma de globo y animaciones suaves -->
+<div *ngIf="menuOpen" class="fixed top-24 left-0 h-auto max-h-[70%] w-64 bg-gradient-to-r from-indigo-600 to-black text-white flex flex-col shadow-2xl transition-transform duration-500 ease-in-out transform translate-x-4 rounded-xl">
+  <div class="p-4 text-lg font-semibold border-b border-gray-700">Menú</div>
+
+  <nav class="flex-1 p-2">
+    <a routerLink="/inventory/bycategory" routerLinkActive="bg-indigo-600 text-white" [routerLinkActiveOptions]="{ exact: true }" class="block px-4 py-2 rounded-lg hover:bg-indigo-800 transition-all duration-300 transform hover:scale-110" (click)="closeMenu()">
+      Buscar por categoría
+    </a>
+
+    <a routerLink="/inventory/byproduct" routerLinkActive="bg-indigo-600 text-white" [routerLinkActiveOptions]="{ exact: true }" class="block px-4 py-2 mt-2 rounded-lg hover:bg-indigo-800 transition-all duration-300 transform hover:scale-110" (click)="closeMenu()">
+      Buscar por producto
+    </a>
+
+    <!-- Solo mostrar esta opción si el usuario es admin -->
+    <a *ngIf="isAdminUser" routerLink="/users/" routerLinkActive="bg-indigo-600 text-white" [routerLinkActiveOptions]="{ exact: true }" class="block px-4 py-2 mt-2 rounded-lg hover:bg-indigo-800 transition-all duration-300 transform hover:scale-110" (click)="closeMenu()">
+      Usuarios
+    </a>
+  </nav>
+</div>
+
+<!-- Área de contenido principal sin el efecto de crecimiento -->
+<div class="flex-1 flex items-center justify-center bg-gray-100 overflow-hidden min-h-screen">
+  <div class="w-full max-w-4xl p-6 bg-white rounded-lg shadow-md overflow-auto">
+    <router-outlet></router-outlet>
+  </div>
+</div>

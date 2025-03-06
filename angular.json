@@ -37,9 +37,13 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/magenta-violet.css",
+              "src/styles.css",
+              "node_modules/toastr/build/toastr.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/toastr/build/toastr.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -95,12 +99,18 @@
               }
             ],
             "styles": [
-              "src/styles.css"
+              "@angular/material/prebuilt-themes/magenta-violet.css",
+              "src/styles.css",
+              "node_modules/primeng/resources/themes/lara-light-blue/theme.css",
+              "node_modules/primeng/resources/primeng.min.css"
             ],
             "scripts": []
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

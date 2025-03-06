@@ -1,0 +1,56 @@
+<div class="container mx-auto p-6">
+  <h1 class="text-2xl font-bold mb-4 text-white">Editar Categoría</h1>
+
+  <!-- Formulario de edición de categoría -->
+  <form [formGroup]="editForm" (ngSubmit)="updateCategory()" class="space-y-4">
+
+    <!-- Campo para Nombre -->
+    <div class="flex flex-col">
+      <label for="nombre" class="text-sm font-semibold text-black">Nombre</label>
+      <input id="nombre" formControlName="nombre" type="text" placeholder="Ingrese el nombre de la categoría"
+        class="mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-gray-800 text-white" />
+
+      <div *ngIf="editForm.get('nombre')?.touched && editForm.get('nombre')?.invalid" class="mt-2 text-sm text-red-500">
+        <div *ngIf="editForm.get('nombre')?.hasError('required')">El nombre es obligatorio.</div>
+        <div *ngIf="editForm.get('nombre')?.hasError('minlength')">El nombre debe tener al menos 3 caracteres.</div>
+      </div>
+    </div>
+
+    <!-- Campo para Descripción -->
+    <div class="flex flex-col">
+      <label for="descripcion" class="text-sm font-semibold text-black">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion" placeholder="Ingrese una descripción"
+        rows="4" class="mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-gray-800 text-white"></textarea>
+
+      <div *ngIf="editForm.get('descripcion')?.touched && editForm.get('descripcion')?.invalid" class="mt-2 text-sm text-red-500">
+        <div *ngIf="editForm.get('descripcion')?.hasError('required')">La descripción es obligatoria.</div>
+      </div>
+    </div>
+
+    <!-- Campo para Estado -->
+    <div class="flex flex-col">
+      <label for="estado" class="text-sm font-semibold text-black  ">Estado</label>
+      <select id="estado" formControlName="estado" class="mt-1 px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-500 bg-gray-800 text-white">
+        <option value="habilitado">Habilitado</option>
+        <option value="deshabilitado">Deshabilitado</option>
+      </select>
+
+      <div *ngIf="editForm.get('estado')?.touched && editForm.get('estado')?.invalid" class="mt-2 text-sm text-red-500">
+        <div *ngIf="editForm.get('estado')?.hasError('required')">El estado es obligatorio.</div>
+      </div>
+    </div>
+
+    <!-- Botones: Actualizar y Cancelar -->
+    <div class="flex justify-between mt-4">
+      <!-- Botón de Actualizar -->
+      <button type="submit" [disabled]="editForm.invalid" class="bg-yellow-500 text-white px-6 py-2 rounded-lg hover:bg-yellow-700 transition-all duration-300 transform hover:scale-110 disabled:opacity-50">
+        Actualizar
+      </button>
+
+      <!-- Botón de Cancelar -->
+      <button (click)="goToCategories()" type="button" class="bg-gray-500 text-white px-6 py-2 rounded-lg hover:bg-gray-700 transition-all duration-300 transform hover:scale-110">
+        Cancelar
+      </button>
+    </div>
+  </form>
+</div>

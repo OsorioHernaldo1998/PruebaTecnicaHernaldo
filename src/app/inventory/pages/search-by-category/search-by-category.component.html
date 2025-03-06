@@ -1,0 +1,15 @@
+
+
+  <!-- Barra de búsqueda -->
+  <shared-search-box (OnValueSearch)="searchTerm($event)" class="w-full mb-4"></shared-search-box>
+
+  <!-- Botón de crear -->
+  <div class="flex justify-end mb-4">
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+    (click)="goNewCategory()">Crear Categoria</button>
+  </div>
+
+
+    <table-category [items]="categorias"></table-category>
+
+

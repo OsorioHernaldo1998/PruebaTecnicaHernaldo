@@ -1,0 +1,45 @@
+<div class="overflow-x-auto max-w-full mx-auto p-6 bg-gray-900 rounded-xl shadow-lg">
+  <shared-search-box (OnValueSearch)="searchTerm($event)"></shared-search-box>
+
+  <div *ngIf="users.length === 0" class="text-center text-gray-400 p-6 text-lg italic">
+    No hay ningún usuario con ese nombre.
+  </div>
+
+  <div class="flex justify-end mb-6">
+    <button class="bg-gradient-to-r from-purple-500 to-blue-500 text-white px-5 py-2 rounded-lg shadow-md hover:from-purple-700 hover:to-blue-700 transform transition-all duration-300 hover:scale-105"
+      (click)="goNewUser()">➕ Crear Usuario</button>
+  </div>
+
+  <table class="w-full bg-gray-800 border border-gray-700 shadow-md rounded-lg overflow-hidden" *ngIf="users.length > 0">
+    <thead>
+      <tr class="bg-gradient-to-r from-purple-700 to-blue-700 text-white text-lg">
+        <th class="px-6 py-4 text-left">Nombre</th>
+        <th class="px-6 py-4 text-left">Correo</th>
+        <th class="px-6 py-4 text-left">Contraseña</th>
+        <th class="px-6 py-4 text-left">Rol</th>
+        <th class="px-6 py-4 text-left">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let user of users" class="border-t border-gray-700 hover:bg-gray-700 transition-all duration-200">
+        <td class="px-6 py-4 text-white">{{ user.nombre }}</td>
+        <td class="px-6 py-4 text-gray-300">{{ user.correo }}</td>
+        <td class="px-6 py-4 text-gray-500">{{ user.password }}</td>
+        <td class="px-6 py-4">
+          <select [(ngModel)]="selectedRoles[user.id]" class="bg-gray-800 border border-gray-600 p-2 rounded text-white focus:ring-2 focus:ring-purple-500">
+            <option value="admin">Admin</option>
+            <option value="usuario">Usuario</option>
+          </select>
+        </td>
+        <td class="px-6 py-4">
+          <button
+            class="bg-green-500 text-white px-5 py-2 rounded-lg shadow-md hover:bg-green-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50"
+            [disabled]="selectedRoles[user.id] === user.rol"
+            (click)="updateUserRole(user)">
+            🔄 Actualizar
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

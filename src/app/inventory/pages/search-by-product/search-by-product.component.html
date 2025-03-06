@@ -1,0 +1,18 @@
+
+
+  <!-- Barra de búsqueda -->
+  <shared-search-box (OnValueSearch)="searchTerm($event)" ></shared-search-box>
+
+
+
+  <!-- Botón de crear -->
+  <div class="flex justify-end mb-4">
+    <button class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700"
+    (click)="goNewProduct()">Crear Producto</button>
+  </div>
+
+
+
+  <!-- Contenedor con scroll vertical -->
+  <table-product [items]="products"></table-product>
+

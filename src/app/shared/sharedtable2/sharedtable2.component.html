@@ -1,0 +1,46 @@
+<div *ngIf="filteredItems.length === 0 else table">
+  No hay nada que mostrar o favor asegurarse de escribir correctamente lo que busca
+</div>
+
+<ng-template #table>
+  <!-- Contenedor para hacer la tabla scrolleable -->
+  <div class="overflow-auto max-h-96 rounded-lg shadow-lg">
+    <table class="min-w-full bg-white border border-gray-200 shadow-lg rounded-lg transition-all duration-300">
+      <thead class="bg-gradient-to-r from-indigo-600 to-indigo-700 text-white">
+        <tr class="text-left">
+          <th class="px-6 py-3 text-sm font-medium">Nombre</th>
+          <th class="px-6 py-3 text-sm font-medium">Descripción</th>
+          <th class="px-6 py-3 text-sm font-medium">Estado</th>
+          <th *ngIf="isAdmin" class="px-6 py-3 text-sm font-medium">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of filteredItems" class="border-b transition-all hover:bg-gray-50 hover:shadow-md">
+          <td class="px-6 py-4 text-sm font-medium">{{ item.nombre }}</td>
+          <td class="px-6 py-4 text-sm">{{ item.descripcion }}</td>
+          <td class="px-6 py-4 text-sm font-medium">{{ item.estado }}</td>
+          <td *ngIf="isAdmin" class="px-6 py-4 text-right">
+            <div class="flex space-x-2 justify-end">
+              <button class="bg-yellow-500 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transform transition-all duration-300 hover:scale-105 hover:bg-yellow-600"
+                (click)="goEditCategory(item)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M12 20h9"></path>
+                  <path d="M16.5 3.5a2.121 2.121 0 1 1 3 3L7 19l-4 1 1-4 12.5-12.5z"></path>
+                </svg>
+                <span>Editar</span>
+              </button>
+              <button class="bg-red-500 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transform transition-all duration-300 hover:scale-105 hover:bg-red-600"
+                (click)="toggleCategoryState(item.id, item.estado, item.nombre)">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="3 6 5 6 21 6"></polyline>
+                  <path d="M19 6l-2 14a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2L5 6m5 4v6m4-6v6"></path>
+                </svg>
+                <span>Eliminar</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</ng-template>

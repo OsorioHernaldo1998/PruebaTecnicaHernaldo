@@ -1,0 +1,110 @@
+{
+  "usuarios": [
+    {
+      "id": "1",
+      "nombre": "Admin",
+      "correo": "admin@email.com",
+      "password": "admin123",
+      "rol": "admin"
+    },
+    {
+      "id": "2",
+      "nombre": "Usuario1",
+      "correo": "usuario1@email.com",
+      "password": "user123",
+      "rol": "usuario"
+    }
+  ],
+  "categorias": [
+    {
+      "id": "Electrónica",
+      "nombre": "Electrónica",
+      "descripcion": "Dispositivos electrónicos y accesorios",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Ropa",
+      "nombre": "Ropa",
+      "descripcion": "Ropa de diferentes estilos y marcas",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Hogar",
+      "nombre": "Hogar",
+      "descripcion": "Artículos para el hogar y cocina",
+      "estado": "deshabilitado"
+    },
+    {
+      "id": "nintendo",
+      "nombre": "nintendo",
+      "descripcion": "asdasd",
+      "estado": "habilitado"
+    }
+  ],
+  "productos": [
+    {
+      "id": "Laptop Gamer",
+      "nombre": "Laptop Gamer",
+      "descripcion": "Laptop gaming de alta gama",
+      "precio": 1200,
+      "categoriaId": "Electrónica",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Smartphone",
+      "nombre": "Smartphone",
+      "descripcion": "Teléfono inteligente con 128GB de almacenamiento",
+      "precio": 800,
+      "categoriaId": "Electrónica",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Auriculares Bluetooth",
+      "nombre": "Auriculares Bluetooth",
+      "descripcion": "Auriculares inalámbricos con cancelación de ruido",
+      "precio": 100,
+      "categoriaId": "Electrónica",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Camiseta",
+      "nombre": "Camiseta",
+      "descripcion": "Camiseta de algodón, talla M",
+      "precio": 20,
+      "categoriaId": "Ropa",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Jeans",
+      "nombre": "Jeans",
+      "descripcion": "Pantalón de mezclilla azul, talla 32",
+      "precio": 35,
+      "categoriaId": "Ropa",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Microondas",
+      "nombre": "Microondas",
+      "descripcion": "Microondas de 20L con grill",
+      "precio": 150,
+      "categoriaId": "Hogar",
+      "estado": "deshabilitado"
+    },
+    {
+      "id": "Batidora",
+      "nombre": "Batidora",
+      "descripcion": "Batidora de mano con accesorios",
+      "precio": 75,
+      "categoriaId": "Hogar",
+      "estado": "habilitado"
+    },
+    {
+      "id": "Smartwatch",
+      "nombre": "Smartwatch",
+      "descripcion": "Reloj inteligente con sensor de frecuencia cardíaca",
+      "precio": 200,
+      "categoriaId": "Electrónica",
+      "estado": "habilitado"
+    }
+  ]
+}
