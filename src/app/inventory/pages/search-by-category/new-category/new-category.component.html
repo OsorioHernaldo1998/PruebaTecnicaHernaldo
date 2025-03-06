@@ -2,16 +2,6 @@
   <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()" class="w-full max-w-lg bg-gray-900 p-8 rounded-lg shadow-lg">
     <h2 class="text-2xl font-bold mb-6 text-center text-white">Nueva Categoría</h2>
 
-    <!-- ID -->
-    <div class="mb-6">
-      <label for="id" class="block text-sm font-medium text-gray-300">ID</label>
-      <input id="id" type="text" formControlName="id"
-        class="mt-2 p-3 w-full border border-gray-700 rounded-lg focus:ring-yellow-500 focus:border-yellow-500 bg-gray-800 text-white" />
-      <div *ngIf="categoryForm.get('id')?.touched && categoryForm.get('id')?.invalid" class="text-sm text-red-500 mt-1">
-        <small *ngIf="categoryForm.get('id')?.hasError('required')">El campo ID es obligatorio.</small>
-      </div>
-    </div>
-
     <!-- Nombre -->
     <div class="mb-6">
       <label for="nombre" class="block text-sm font-medium text-gray-300">Nombre</label>

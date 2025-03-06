@@ -15,7 +15,6 @@ export class NewCategoryComponent implements OnInit {
   public Estado = Estado; // Enum Estado
   // FormGroup para el formulario de categoría
   public categoryForm = new FormGroup({
-    id: new FormControl('', [Validators.required]),
     nombre: new FormControl('', [Validators.required]),
     descripcion: new FormControl('', [Validators.required]),
     estado: new FormControl(Estado.Habilitado, [Validators.required])
@@ -36,7 +35,7 @@ export class NewCategoryComponent implements OnInit {
     }
 
     const newCategory: CategoriaElement = {
-      id: this.categoryForm.get('id')?.value || '',
+      id: this.categoryForm.get('nombre')?.value?.toLowerCase().replace(/\s+/g, '-')!, // Genera el id a partir del nombre
       nombre: this.categoryForm.get('nombre')?.value || '',
       descripcion: this.categoryForm.get('descripcion')?.value || '',
       estado: this.categoryForm.get('estado')?.value || Estado.Habilitado

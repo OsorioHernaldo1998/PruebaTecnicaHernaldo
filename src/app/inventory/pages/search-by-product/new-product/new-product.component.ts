@@ -18,10 +18,9 @@ export class NewProductComponent implements OnInit {
   public categories: CategoriaElement[] = [];
 
   public productForm = new FormGroup({
-    id:          new FormControl('', { nonNullable: true }),
-    nombre:      new FormControl(''),
+    nombre:      new FormControl('', [Validators.required]),
     descripcion: new FormControl(''),
-    precio:      new FormControl(''),
+    precio:      new FormControl('', [Validators.required, Validators.min(0.01)]), // Validación para que el precio sea mayor a 0
     categoriaId: new FormControl('', [Validators.required]),
     estado:      new FormControl<Estado>(Estado.Habilitado),
   });
@@ -47,12 +46,17 @@ export class NewProductComponent implements OnInit {
 
   onSubmit() {
     if (this.productForm.invalid) {
-      this.toastr.warning('Completa los campos obligatorios', 'Formulario inválido');
+      // Validación para mostrar error si el precio es menor o igual a 0
+      if (this.productForm.get('precio')?.hasError('min')) {
+        this.toastr.error('El precio debe ser mayor que 0', 'Error de Validación');
+      } else {
+        this.toastr.warning('Completa los campos obligatorios', 'Formulario inválido');
+      }
       return;
     }
 
     const newProduct: Product = {
-      id: this.productForm.get('id')?.value || '',
+      id: this.productForm.get('nombre')?.value?.toLowerCase() || '', // Asigna el ID igual al nombre
       nombre: this.productForm.get('nombre')?.value || '',
       descripcion: this.productForm.get('descripcion')?.value || '',
       precio: +this.productForm.get('precio')?.value! || 0,

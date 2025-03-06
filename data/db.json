@@ -20,7 +20,7 @@
       "id": "Electrónica",
       "nombre": "Electrónica",
       "descripcion": "Dispositivos electrónicos y accesorios",
-      "estado": "habilitado"
+      "estado": "deshabilitado"
     },
     {
       "id": "Ropa",
@@ -39,6 +39,18 @@
       "nombre": "nintendo",
       "descripcion": "asdasd",
       "estado": "habilitado"
+    },
+    {
+      "id": "nintendo",
+      "nombre": "qweqwe",
+      "descripcion": "qwewqew",
+      "estado": "habilitado"
+    },
+    {
+      "id": "ewe",
+      "nombre": "ewe",
+      "descripcion": "asdasdasd",
+      "estado": "habilitado"
     }
   ],
   "productos": [
@@ -48,7 +60,7 @@
       "descripcion": "Laptop gaming de alta gama",
       "precio": 1200,
       "categoriaId": "Electrónica",
-      "estado": "habilitado"
+      "estado": "deshabilitado"
     },
     {
       "id": "Smartphone",
@@ -104,6 +116,22 @@
       "descripcion": "Reloj inteligente con sensor de frecuencia cardíaca",
       "precio": 200,
       "categoriaId": "Electrónica",
+      "estado": "habilitado"
+    },
+    {
+      "id": "nintendo",
+      "nombre": "play",
+      "descripcion": "asdasdad",
+      "precio": 12412312,
+      "categoriaId": 0,
+      "estado": "habilitado"
+    },
+    {
+      "id": "eqweqwe",
+      "nombre": "eqweqwe",
+      "descripcion": "qeqweqw",
+      "precio": 123123,
+      "categoriaId": 0,
       "estado": "habilitado"
     }
   ]

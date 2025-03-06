@@ -4,6 +4,7 @@ import { Product } from "../../inventory/interfaces/product.interface";
 import { ProductService } from "../../inventory/services/product.service";
 import { Estado } from "../../inventory/interfaces/product.interface";
 import { AuthService } from "../../auth/pages/services/auth.service";
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'table-product',
@@ -21,7 +22,8 @@ export class SharedTableComponent implements OnInit {
   constructor(
     private router: Router,
     private productService: ProductService,
-    private authService: AuthService // El servicio de autenticación
+    private authService: AuthService, // El servicio de autenticación
+    private toastr: ToastrService // Inyecta ToastrService
   ) {}
 
   ngOnInit() {
@@ -51,7 +53,8 @@ export class SharedTableComponent implements OnInit {
 
   // Función para cambiar el estado de un producto (habilitado/deshabilitado)
   toggleProductState(id: string, currentState: Estado, nombre: string) {
-    const confirmAction = window.confirm(`¿Estás seguro de eliminar el producto "${nombre}"? Esta acción deshabilitará el producto.`);
+    // Usamos window.confirm para confirmar la acción
+    const confirmAction = window.confirm(`¿Estás seguro de cambiar el estado del producto "${nombre}"?`);
 
     if (confirmAction) {
       const newState = currentState === Estado.Habilitado ? Estado.Deshabilitado : Estado.Habilitado;
@@ -63,11 +66,15 @@ export class SharedTableComponent implements OnInit {
             product.estado = newState;
           }
           this.filterProducts(); // Reaplicamos el filtro después de modificar un producto
+          this.toastr.success('Estado del producto actualizado con éxito', 'Éxito');
         },
         (error) => {
           console.error('Hubo un error al cambiar el estado del producto', error);
+          this.toastr.error('Error al cambiar el estado del producto', 'Error');
         }
       );
+    } else {
+      this.toastr.info('Acción cancelada', 'Cancelada');
     }
   }
 }
